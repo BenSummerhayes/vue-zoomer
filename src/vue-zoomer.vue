@@ -90,6 +90,7 @@ export default {
     resetTrigger: 'reset',
   },
   mounted () {
+    console.log('hi from zoomer')
     this.tapDetector = new TapDetector()
     this.tapDetector.attach(this.$el)
     if (this.doubleClickToZoom) {
