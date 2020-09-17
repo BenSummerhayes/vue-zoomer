@@ -601,7 +601,7 @@ var script = {
     resetTrigger: 'reset',
   },
   mounted () {
-    console.log('hi from zoomer');
+    console.log('hi from zoomer!!');
     this.tapDetector = new TapDetector();
     this.tapDetector.attach(this.$el);
     if (this.doubleClickToZoom) {
@@ -678,7 +678,7 @@ var script = {
     onInteractionEnd: lodash_debounce(function ()  {
       this.limit();
       // this.panLocked = this.scale === 1
-      // this.$emit('update:zoomed', !this.panLocked)
+      this.$emit('update:zoomed', !this.panLocked);
     }, 100),
     // limit the scale between max and min and the translate within the viewport
     limit () {
@@ -1037,11 +1037,11 @@ __vue_render__._withStripped = true;
   /* style */
   const __vue_inject_styles__ = function (inject) {
     if (!inject) return
-    inject("data-v-1806c1b7_0", { source: ".vue-zoomer[data-v-1806c1b7] {\n  overflow: hidden;\n  transition: background-color 0.5s;\n}\n.zoomer[data-v-1806c1b7] {\n  transform-origin: 50% 50%;\n  width: 100%;\n  height: 100%;\n}\n.zoomer > img[data-v-1806c1b7] {\n  vertical-align: top;\n  user-drag: none;\n  -webkit-user-drag: none;\n  -moz-user-drag: none;\n}\n", map: undefined, media: undefined });
+    inject("data-v-880fc392_0", { source: ".vue-zoomer[data-v-880fc392] {\n  overflow: hidden;\n  transition: background-color 0.5s;\n}\n.zoomer[data-v-880fc392] {\n  transform-origin: 50% 50%;\n  width: 100%;\n  height: 100%;\n}\n.zoomer > img[data-v-880fc392] {\n  vertical-align: top;\n  user-drag: none;\n  -webkit-user-drag: none;\n  -moz-user-drag: none;\n}\n", map: undefined, media: undefined });
 
   };
   /* scoped */
-  const __vue_scope_id__ = "data-v-1806c1b7";
+  const __vue_scope_id__ = "data-v-880fc392";
   /* module identifier */
   const __vue_module_identifier__ = undefined;
   /* functional template */

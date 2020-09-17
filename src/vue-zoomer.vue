@@ -90,7 +90,7 @@ export default {
     resetTrigger: 'reset',
   },
   mounted () {
-    console.log('hi from zoomer')
+    console.log('hi from zoomer!!')
     this.tapDetector = new TapDetector()
     this.tapDetector.attach(this.$el)
     if (this.doubleClickToZoom) {
@@ -167,7 +167,7 @@ export default {
     onInteractionEnd: _debounce(function ()  {
       this.limit()
       // this.panLocked = this.scale === 1
-      // this.$emit('update:zoomed', !this.panLocked)
+      this.$emit('update:zoomed', !this.panLocked)
     }, 100),
     // limit the scale between max and min and the translate within the viewport
     limit () {
