@@ -62,7 +62,7 @@ export default {
       pointerPosX: -1,
       pointerPosY: -1,
       twoFingerInitDist: 0,
-      panLocked: true,
+      panLocked: false,
       // Others
       raf: null,
       tapDetector: null,
@@ -112,7 +112,7 @@ export default {
     // API ---------------------------------------------------------------------
     reset () {
       this.scale = 1
-      this.panLocked = true
+      this.panLocked = false
       this.translateX = 0
       this.translateY = 0
     },
@@ -166,8 +166,8 @@ export default {
     },
     onInteractionEnd: _debounce(function ()  {
       this.limit()
-      this.panLocked = this.scale === 1
-      this.$emit('update:zoomed', !this.panLocked)
+      // this.panLocked = this.scale === 1
+      // this.$emit('update:zoomed', !this.panLocked)
     }, 100),
     // limit the scale between max and min and the translate within the viewport
     limit () {
