@@ -602,7 +602,7 @@ var script = {
     resetTrigger: 'reset',
   },
   mounted () {
-    console.log('hi from zoomer!!');
+    // console.log('hi from zoomer!!...panLocked status: ' + this.panLocked)
     this.tapDetector = new TapDetector();
     this.tapDetector.attach(this.$el);
     if (this.doubleClickToZoom) {
@@ -1038,11 +1038,11 @@ __vue_render__._withStripped = true;
   /* style */
   const __vue_inject_styles__ = function (inject) {
     if (!inject) return
-    inject("data-v-06fc4dce_0", { source: ".vue-zoomer[data-v-06fc4dce] {\n  overflow: hidden;\n  transition: background-color 0.5s;\n}\n.zoomer[data-v-06fc4dce] {\n  transform-origin: 50% 50%;\n  width: 100%;\n  height: 100%;\n}\n.zoomer > img[data-v-06fc4dce] {\n  vertical-align: top;\n  user-drag: none;\n  -webkit-user-drag: none;\n  -moz-user-drag: none;\n}\n", map: undefined, media: undefined });
+    inject("data-v-9cd95c3a_0", { source: ".vue-zoomer[data-v-9cd95c3a] {\n  overflow: hidden;\n  transition: background-color 0.5s;\n}\n.zoomer[data-v-9cd95c3a] {\n  transform-origin: 50% 50%;\n  width: 100%;\n  height: 100%;\n}\n.zoomer > img[data-v-9cd95c3a] {\n  vertical-align: top;\n  user-drag: none;\n  -webkit-user-drag: none;\n  -moz-user-drag: none;\n}\n", map: undefined, media: undefined });
 
   };
   /* scoped */
-  const __vue_scope_id__ = "data-v-06fc4dce";
+  const __vue_scope_id__ = "data-v-9cd95c3a";
   /* module identifier */
   const __vue_module_identifier__ = undefined;
   /* functional template */

@@ -91,7 +91,7 @@ export default {
     resetTrigger: 'reset',
   },
   mounted () {
-    console.log('hi from zoomer!!')
+    // console.log('hi from zoomer!!...panLocked status: ' + this.panLocked)
     this.tapDetector = new TapDetector()
     this.tapDetector.attach(this.$el)
     if (this.doubleClickToZoom) {
