@@ -547,6 +547,7 @@ var script = {
     pivot: { type: String, default: 'cursor' }, // other options: image-center
     limitTranslation: { type: Boolean, default: true },
     doubleClickToZoom: { type: Boolean, default: true },
+    panLocked: { type: Boolean, default: false },
   },
   data () {
     return {
@@ -573,7 +574,7 @@ var script = {
       pointerPosX: -1,
       pointerPosY: -1,
       twoFingerInitDist: 0,
-      panLocked: false,
+      // panLocked: false,
       // Others
       raf: null,
       tapDetector: null,
@@ -595,7 +596,7 @@ var script = {
     scale (val) {
       if (val !== 1) {
         this.$emit('update:zoomed', true);
-        this.panLocked = false;
+        // this.panLocked = false
       }
     },
     resetTrigger: 'reset',
@@ -623,7 +624,7 @@ var script = {
     // API ---------------------------------------------------------------------
     reset () {
       this.scale = 1;
-      this.panLocked = false;
+      // this.panLocked = false
       this.translateX = 0;
       this.translateY = 0;
     },
@@ -1037,11 +1038,11 @@ __vue_render__._withStripped = true;
   /* style */
   const __vue_inject_styles__ = function (inject) {
     if (!inject) return
-    inject("data-v-880fc392_0", { source: ".vue-zoomer[data-v-880fc392] {\n  overflow: hidden;\n  transition: background-color 0.5s;\n}\n.zoomer[data-v-880fc392] {\n  transform-origin: 50% 50%;\n  width: 100%;\n  height: 100%;\n}\n.zoomer > img[data-v-880fc392] {\n  vertical-align: top;\n  user-drag: none;\n  -webkit-user-drag: none;\n  -moz-user-drag: none;\n}\n", map: undefined, media: undefined });
+    inject("data-v-06fc4dce_0", { source: ".vue-zoomer[data-v-06fc4dce] {\n  overflow: hidden;\n  transition: background-color 0.5s;\n}\n.zoomer[data-v-06fc4dce] {\n  transform-origin: 50% 50%;\n  width: 100%;\n  height: 100%;\n}\n.zoomer > img[data-v-06fc4dce] {\n  vertical-align: top;\n  user-drag: none;\n  -webkit-user-drag: none;\n  -moz-user-drag: none;\n}\n", map: undefined, media: undefined });
 
   };
   /* scoped */
-  const __vue_scope_id__ = "data-v-880fc392";
+  const __vue_scope_id__ = "data-v-06fc4dce";
   /* module identifier */
   const __vue_module_identifier__ = undefined;
   /* functional template */

@@ -36,6 +36,7 @@ export default {
     pivot: { type: String, default: 'cursor' }, // other options: image-center
     limitTranslation: { type: Boolean, default: true },
     doubleClickToZoom: { type: Boolean, default: true },
+    panLocked: { type: Boolean, default: false },
   },
   data () {
     return {
@@ -62,7 +63,7 @@ export default {
       pointerPosX: -1,
       pointerPosY: -1,
       twoFingerInitDist: 0,
-      panLocked: false,
+      // panLocked: false,
       // Others
       raf: null,
       tapDetector: null,
@@ -84,7 +85,7 @@ export default {
     scale (val) {
       if (val !== 1) {
         this.$emit('update:zoomed', true)
-        this.panLocked = false
+        // this.panLocked = false
       }
     },
     resetTrigger: 'reset',
@@ -112,7 +113,7 @@ export default {
     // API ---------------------------------------------------------------------
     reset () {
       this.scale = 1
-      this.panLocked = false
+      // this.panLocked = false
       this.translateX = 0
       this.translateY = 0
     },
