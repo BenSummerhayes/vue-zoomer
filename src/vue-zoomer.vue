@@ -62,7 +62,7 @@ export default {
       pointerPosX: -1,
       pointerPosY: -1,
       twoFingerInitDist: 0,
-      panLocked: false,
+      panLocked: true,
       // Others
       raf: null,
       tapDetector: null,
@@ -84,7 +84,7 @@ export default {
     scale (val) {
       if (val !== 1) {
         this.$emit('update:zoomed', true)
-        // this.panLocked = false
+        this.panLocked = false
       }
     },
     resetTrigger: 'reset',
@@ -111,7 +111,7 @@ export default {
     // API ---------------------------------------------------------------------
     reset () {
       this.scale = 1
-      // this.panLocked = true
+      this.panLocked = true
       this.translateX = 0
       this.translateY = 0
     },
@@ -155,18 +155,18 @@ export default {
         let pixelDeltaX = newMousePosX - this.pointerPosX
         let pixelDeltaY = newMousePosY - this.pointerPosY
         // console.log('pixelDeltaX, pixelDeltaY', pixelDeltaX, pixelDeltaY)
-        // if (!this.panLocked) {
-        //   this.translateX += pixelDeltaX / this.containerWidth
-        //   this.translateY += pixelDeltaY / this.containerHeight
-        // }
+        if (!this.panLocked) {
+          this.translateX += pixelDeltaX / this.containerWidth
+          this.translateY += pixelDeltaY / this.containerHeight
+        }
       }
       this.pointerPosX = newMousePosX
       this.pointerPosY = newMousePosY
     },
     onInteractionEnd: _debounce(function ()  {
       this.limit()
-      // this.panLocked = this.scale === 1
-      // this.$emit('update:zoomed', !this.panLocked)
+      this.panLocked = this.scale === 1
+      this.$emit('update:zoomed', !this.panLocked)
     }, 100),
     // limit the scale between max and min and the translate within the viewport
     limit () {

@@ -573,7 +573,7 @@ var script = {
       pointerPosX: -1,
       pointerPosY: -1,
       twoFingerInitDist: 0,
-      panLocked: false,
+      panLocked: true,
       // Others
       raf: null,
       tapDetector: null,
@@ -595,7 +595,7 @@ var script = {
     scale (val) {
       if (val !== 1) {
         this.$emit('update:zoomed', true);
-        // this.panLocked = false
+        this.panLocked = false;
       }
     },
     resetTrigger: 'reset',
@@ -622,7 +622,7 @@ var script = {
     // API ---------------------------------------------------------------------
     reset () {
       this.scale = 1;
-      // this.panLocked = true
+      this.panLocked = true;
       this.translateX = 0;
       this.translateY = 0;
     },
@@ -666,18 +666,18 @@ var script = {
         let pixelDeltaX = newMousePosX - this.pointerPosX;
         let pixelDeltaY = newMousePosY - this.pointerPosY;
         // console.log('pixelDeltaX, pixelDeltaY', pixelDeltaX, pixelDeltaY)
-        // if (!this.panLocked) {
-        //   this.translateX += pixelDeltaX / this.containerWidth
-        //   this.translateY += pixelDeltaY / this.containerHeight
-        // }
+        if (!this.panLocked) {
+          this.translateX += pixelDeltaX / this.containerWidth;
+          this.translateY += pixelDeltaY / this.containerHeight;
+        }
       }
       this.pointerPosX = newMousePosX;
       this.pointerPosY = newMousePosY;
     },
     onInteractionEnd: lodash_debounce(function ()  {
       this.limit();
-      // this.panLocked = this.scale === 1
-      // this.$emit('update:zoomed', !this.panLocked)
+      this.panLocked = this.scale === 1;
+      this.$emit('update:zoomed', !this.panLocked);
     }, 100),
     // limit the scale between max and min and the translate within the viewport
     limit () {
@@ -1036,11 +1036,11 @@ __vue_render__._withStripped = true;
   /* style */
   const __vue_inject_styles__ = function (inject) {
     if (!inject) return
-    inject("data-v-9de083fa_0", { source: ".vue-zoomer[data-v-9de083fa] {\n  overflow: hidden;\n  transition: background-color 0.5s;\n}\n.zoomer[data-v-9de083fa] {\n  transform-origin: 50% 50%;\n  width: 100%;\n  height: 100%;\n}\n.zoomer > img[data-v-9de083fa] {\n  vertical-align: top;\n  user-drag: none;\n  -webkit-user-drag: none;\n  -moz-user-drag: none;\n}\n", map: undefined, media: undefined });
+    inject("data-v-2994bbe2_0", { source: ".vue-zoomer[data-v-2994bbe2] {\n  overflow: hidden;\n  transition: background-color 0.5s;\n}\n.zoomer[data-v-2994bbe2] {\n  transform-origin: 50% 50%;\n  width: 100%;\n  height: 100%;\n}\n.zoomer > img[data-v-2994bbe2] {\n  vertical-align: top;\n  user-drag: none;\n  -webkit-user-drag: none;\n  -moz-user-drag: none;\n}\n", map: undefined, media: undefined });
 
   };
   /* scoped */
-  const __vue_scope_id__ = "data-v-9de083fa";
+  const __vue_scope_id__ = "data-v-2994bbe2";
   /* module identifier */
   const __vue_module_identifier__ = undefined;
   /* functional template */
