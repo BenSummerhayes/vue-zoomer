@@ -62,7 +62,7 @@ export default {
       pointerPosX: -1,
       pointerPosY: -1,
       twoFingerInitDist: 0,
-      panLocked: true,
+      panLocked: false,
       // Others
       raf: null,
       tapDetector: null,
